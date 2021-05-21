@@ -5,7 +5,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
     location            = var.location
     resource_group_name = azurerm_resource_group.flixtube.name
     dns_prefix          = var.app_name
-    kubernetes_version  = "1.18.17"
+    kubernetes_version  = "1.18.8"
 
     linux_profile {
         admin_username = var.admin_username
@@ -49,7 +49,6 @@ output "cluster_cluster_password" {
 
 output "cluster_kube_config" {
   value = azurerm_kubernetes_cluster.cluster.kube_config_raw
-  sensitive = true
 }
 
 output "cluster_host" {
